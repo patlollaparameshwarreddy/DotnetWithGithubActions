@@ -27,3 +27,8 @@ jobs:
         run: dotnet test --no-build --verbosity normal
       - name: Publish
         run: dotnet publish DotnetWithGithubActions/DotnetWithGithubActions.csproj -c Release -o release --nologo
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Application_Artifact
+          path: /home/runner/work/DotnetWithGithubActions/DotnetWithGithubActions/release/
